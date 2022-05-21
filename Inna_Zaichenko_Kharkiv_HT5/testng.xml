@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="ProductPageSuite" parallel="tests">
+    <test name="tests.ProductPageTestsChrome" parallel="methods" thread-count="3">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.ProductPageTests">
+                <methods>
+                    <include name="checkThatInStockMessageIsDisplayed"/>
+                    <include name="checkAddToCart"/>
+                    <include name="checkThatProductsAreSwatchable"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="tests.ProductPageTestsFirefox" parallel="methods" thread-count="3">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.ProductPageTests">
+                <methods>
+                    <include name="checkThatInStockMessageIsDisplayed"/>
+                    <include name="checkAddToCart"/>
+                    <include name="checkThatProductsAreSwatchable"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+
